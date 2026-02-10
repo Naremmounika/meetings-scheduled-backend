@@ -1,0 +1,44 @@
+POST http://localhost:3000/users
+Content-Type: application/json
+
+{
+  "name": "Mounika",
+  "email": "mounika@gmail.com"
+}
+
+### Create Meeting (non-overlapping)
+POST http://localhost:3000/meetings
+Content-Type: application/json
+
+{
+  "userId": 1,
+  "title": "Interview 1",
+  "startTime": "2026-02-10T10:00:00.000Z",
+  "endTime": "2026-02-10T10:30:00.000Z"
+}
+
+### Create Meeting (overlapping - should fail)
+POST http://localhost:3000/meetings
+Content-Type: application/json
+
+{
+  "userId": 1,
+  "title": "Interview 2",
+  "startTime": "2026-02-10T10:15:00.000Z",
+  "endTime": "2026-02-10T10:45:00.000Z"
+}
+
+### Get All Meetings
+GET http://localhost:3000/meetings
+
+### Update Meeting (should fail if overlapping)
+PUT http://localhost:3000/meetings/1
+Content-Type: application/json
+
+{
+  "startTime": "2026-02-10T10:20:00.000Z",
+  "endTime": "2026-02-10T10:50:00.000Z"
+}
+
+### Delete Meeting
+DELETE http://localhost:3000/meetings/1
