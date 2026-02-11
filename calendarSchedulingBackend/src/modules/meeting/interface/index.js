@@ -16,6 +16,7 @@ const editMeeting = async (req, res) => {
     validateMeeting(req.body);
     const meeting = await updateMeeting(req.params.id, req.body);
     res.status(200).json(meeting);
+    res.send("meeting updated successfully")
   } catch (err) {
     res.status(400).json({ message: err.message });
   }

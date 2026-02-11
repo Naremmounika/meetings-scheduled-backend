@@ -3,10 +3,10 @@ const { addMeeting, editMeeting, getMeetingById, listAllMeetings, removeMeeting 
 
 const router = express.Router();
 
-router.post("/meetings", addMeeting);
-router.get("/meetings", listAllMeetings);
-router.get("/meetings/:id", getMeetingById);
-router.put("/meetings/:id", editMeeting);
-router.delete("/meetings/:id", removeMeeting);
+router.post("/", addMeeting);
+router.get("/", listAllMeetings);
+router.get("/:id", getMeetingById);
+router.put("/:id", editMeeting);
+router.delete("/:id", removeMeeting);
 
 module.exports = router;
