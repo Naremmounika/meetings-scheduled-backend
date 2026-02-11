@@ -2,19 +2,21 @@ POST http://localhost:3000/users
 Content-Type: application/json
 
 {
-  "name": "Mounika",
-  "email": "mounika@gmail.com"
+  "name": "mouni",
+  "email": "mouni@gmail.com"
 }
 
-### Create Meeting (non-overlapping)
+
+### create meetings
+
 POST http://localhost:3000/meetings
 Content-Type: application/json
 
 {
   "userId": 1,
-  "title": "Interview 1",
-  "startTime": "2026-02-10T10:00:00.000Z",
-  "endTime": "2026-02-10T10:30:00.000Z"
+  "title": "Interview 5",
+  "startTime": "2026-03-10T10:30:00.000Z",
+  "endTime": "2026-04-10T10:30:00.000Z"
 }
 
 ### Create Meeting (overlapping - should fail)
@@ -24,8 +26,8 @@ Content-Type: application/json
 {
   "userId": 1,
   "title": "Interview 2",
-  "startTime": "2026-02-10T10:15:00.000Z",
-  "endTime": "2026-02-10T10:45:00.000Z"
+  "startTime": "2026-03-10T10:15:00.000Z",
+  "endTime": "2026-04-10T10:45:00.000Z"
 }
 
 ### Get All Meetings
